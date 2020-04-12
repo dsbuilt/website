@@ -1,15 +1,16 @@
 html {
 	min-height: 100%;
 	background-repeat:no-repeat;
-	background: rgb(150,150,150);
-	background: linear-gradient(0deg, rgba(150,150,150,1) 0%, rgba(255,255,255,1) 100%);
+	background: black;
+	/*background: rgb(150,150,150);*/
+	/*background: linear-gradient(0deg, rgba(150,150,150,1) 0%, rgba(255,255,255,1) 100%);*/
 }
 
 h1 {
-	color: black;
+	color: grey;
 	font-family: 'Roboto', sans-serif;
 	font-size: 250%;
-	text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
+	/*text-shadow: 2px 2px 3px rgba(0,0,0,0.3);*/
 }
 
 div {
