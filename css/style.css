@@ -289,8 +289,14 @@ a:active {
   background-position: center center;
   background-position-x: 50%;
   background-position-y: 50%;
+  background-attachment:scroll; 
+  -o-background-size: cover; 
+  -moz-background-size: cover; 
+  -webkit-background-size: cover; 
+  background-repeat: no-repeat;
   height: 100vh;
   display: flex;
+  -webkit-display: flex;
   justify-content: center;
   align-items: center;
 }
