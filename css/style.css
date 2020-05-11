@@ -46,6 +46,7 @@ p {
   font-size: 16px;
   line-height: 25px;
   margin: 0px;
+  font: 14px/22px 'Cabin', sans-serif, Helvetica, Arial, sans-serif;
 }
 
 ul {
@@ -102,7 +103,8 @@ a:active {
 }
 
 .heading p {
-  font-family: 'Cabin', serif;
+  /* font-family: 'Cabin', serif;
+  font: 14px/22px 'Cabin', sans-serif, Helvetica, Arial, sans-serif; */
   font-size: 15px;
   line-height: 24px;
   font-weight: 300;
@@ -292,7 +294,7 @@ a:active {
 
 .hero-area h1 {
   color: #fff;
-  font-size: 60px;
+  font-size: 50px;
   text-transform: uppercase;
   font-weight: bold;
   padding-bottom: 19px;
