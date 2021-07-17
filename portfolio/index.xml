@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on DSBuilt</title>
+    <link>https://dsbuilt.com/portfolio/</link>
+    <description>Recent content in Projects on DSBuilt</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 23 Dec 2019 16:48:28 +0600</lastBuildDate><atom:link href="https://dsbuilt.com/portfolio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ashburton</title>
+      <link>https://dsbuilt.com/portfolio/ashburton/</link>
+      <pubDate>Tue, 08 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://dsbuilt.com/portfolio/ashburton/</guid>
+      <description>Photography by Daniela Fulford Photography.</description>
+    </item>
+    
+    <item>
+      <title>Albert Park - Coming Soon</title>
+      <link>https://dsbuilt.com/portfolio/albert_park/</link>
+      <pubDate>Mon, 07 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://dsbuilt.com/portfolio/albert_park/</guid>
+      <description>Coming soon.
+  </description>
+    </item>
+    
+    <item>
+      <title>Moorabbin - Coming Soon</title>
+      <link>https://dsbuilt.com/portfolio/moorabbin/</link>
+      <pubDate>Sat, 05 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://dsbuilt.com/portfolio/moorabbin/</guid>
+      <description>Coming soon.</description>
+    </item>
+    
+    <item>
+      <title>Brighton East - Coming Soon</title>
+      <link>https://dsbuilt.com/portfolio/brighton/</link>
+      <pubDate>Fri, 04 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://dsbuilt.com/portfolio/brighton/</guid>
+      <description>Coming soon.</description>
+    </item>
+    
+  </channel>
+</rss>
