@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Contact | DSBuilt</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="author" content="DSBuilt" />
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q3V9TRTJR5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-Q3V9TRTJR5');
+  </script>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <div class="navbar-logo">
+        <a href="/"><img src="images/logo.png" alt="DSBuilt" /></a>
+      </div>
+      <nav class="navbar-menu" id="navbar-menu" aria-hidden="true">
+        <ul class="navbar-nav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/projects.html">Projects</a></li>
+          <li><a href="/feed.html">Feed</a></li>
+          <li class="active"><a href="/contact.html" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="navbar-burger" id="navbar-burger" aria-controls="navbar-menu" aria-expanded="false">
+        <span class="navbar-burger-line"></span>
+        <span class="navbar-burger-line"></span>
+        <span class="navbar-burger-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <div class="postHeader">
+      <h1 class="postHeader-title">Contact</h1>
+    </div>
+
+    <section class="contact-section">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <dl class="detailList">
+              <dt>Email</dt>
+              <dd><a href="mailto:info@dsbuilt.com">info@dsbuilt.com</a></dd>
+              <dt>Address</dt>
+              <dd>45 Vannam Drive<br>Ashwood, VIC, 3147<br><em>By appointment only</em></dd>
+              <dt>Instagram</dt>
+              <dd><a href="https://www.instagram.com/ds.built/" target="_blank" rel="noopener">@ds.built</a></dd>
+              <dt>Facebook</dt>
+              <dd><a href="https://www.facebook.com/Dsbuilt-102674981467831/" target="_blank" rel="noopener">DSBuilt</a></dd>
+            </dl>
+          </div>
+          <div class="contact-form-wrapper">
+            <h4>TELL US ABOUT YOUR PROJECT</h4>
+            <form id="contact-form" action="https://formspree.io/f/xwkazgwk" method="POST" class="contact-form">
+              <div class="form-row">
+                <input type="text" name="first-name" placeholder="First Name" required />
+                <input type="text" name="last-name" placeholder="Last Name" required />
+              </div>
+              <input type="email" name="email" placeholder="Email" required />
+              <textarea name="about-project" rows="6" placeholder="About the Project" required></textarea>
+              <button type="submit" class="btn btn-primary" id="contact-form-button">Send Message</button>
+              <p id="contact-form-status"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h5 class="footer-title">Contact Info</h5>
+          <p><a href="mailto:info@dsbuilt.com">info@dsbuilt.com</a></p>
+          <p>45 Vannam Drive<br>Ashwood, VIC, 3147<br><em>By appointment only</em></p>
+        </div>
+        <div class="footer-col">
+          <h5 class="footer-title">Social Media</h5>
+          <ul class="footer-links">
+            <li><a href="https://www.instagram.com/ds.built/" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://www.facebook.com/Dsbuilt-102674981467831/" target="_blank" rel="noopener">Facebook</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5 class="footer-title">Sitemap</h5>
+          <ul class="footer-links">
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/projects.html">Projects</a></li>
+            <li><a href="/feed.html">Feed</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer-logos">
+          <img src="images/VBA-logo.jpg" alt="VBA Logo" />
+          <img src="images/mbav-logo.jpg" alt="Master Builders Logo" />
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

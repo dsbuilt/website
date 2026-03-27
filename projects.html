@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | DSBuilt</title>
+  <meta name="description" content="Browse DSBuilt's portfolio of custom home renovations and new builds across Melbourne." />
+  <link rel="icon" href="images/favicon.ico" />
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q3V9TRTJR5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Q3V9TRTJR5');
+  </script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <div class="navbar-logo">
+        <a href="/"><img src="images/logo.png" alt="DSBuilt" /></a>
+      </div>
+      <nav class="navbar-menu" id="navbar-menu" aria-hidden="true">
+        <ul class="navbar-nav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li class="active"><a href="/projects.html" aria-current="page">Projects</a></li>
+          <li><a href="/feed.html">Feed</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="navbar-burger" id="navbar-burger" aria-controls="navbar-menu" aria-expanded="false">
+        <span class="navbar-burger-line"></span>
+        <span class="navbar-burger-line"></span>
+        <span class="navbar-burger-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Page Header & Filter -->
+  <div class="container">
+    <div class="postHeader">
+      <h1 class="postHeader-title">Projects</h1>
+    </div>
+    <div class="previewFilter" id="previewFilter" role="radiogroup">
+      <button class="previewFilter-item is-active" role="radio" aria-checked="true" data-filter="all">All</button>
+      <button class="previewFilter-item" role="radio" aria-checked="false" data-filter="renovation">Renovation</button>
+      <button class="previewFilter-item" role="radio" aria-checked="false" data-filter="new-build">New Build</button>
+    </div>
+  </div>
+
+  <!-- Project Grid -->
+  <section class="container">
+    <div class="previewGrid" id="previewGrid">
+      <div class="previewGrid-item previewGrid-item--feature" data-category="renovation">
+        <a href="/projects/albert-park.html" class="previewGrid-link">
+          <div class="previewGrid-image">
+            <img src="images/projects/albert_park/cover.jpg" alt="Albert Park" />
+          </div>
+          <div class="previewGrid-content">
+            <span class="previewGrid-category">Renovation</span>
+            <h3 class="previewGrid-title">Albert Park</h3>
+          </div>
+        </a>
+      </div>
+      <div class="previewGrid-item" data-category="renovation">
+        <a href="/projects/ashburton.html" class="previewGrid-link">
+          <div class="previewGrid-image">
+            <img src="images/projects/ashburton/cover.jpg" alt="Ashburton" />
+          </div>
+          <div class="previewGrid-content">
+            <span class="previewGrid-category">Renovation</span>
+            <h3 class="previewGrid-title">Ashburton</h3>
+          </div>
+        </a>
+      </div>
+      <div class="previewGrid-item" data-category="new-build">
+        <a href="/projects/cheltenham.html" class="previewGrid-link">
+          <div class="previewGrid-image">
+            <img src="images/projects/cheltenham/cover.jpg" alt="Cheltenham" />
+          </div>
+          <div class="previewGrid-content">
+            <span class="previewGrid-category">New Build</span>
+            <h3 class="previewGrid-title">Cheltenham</h3>
+          </div>
+        </a>
+      </div>
+      <div class="previewGrid-item" data-category="new-build">
+        <a href="/projects/brighton-east.html" class="previewGrid-link">
+          <div class="previewGrid-image">
+            <img src="images/projects/brighton_east/cover.jpg" alt="Brighton East" />
+          </div>
+          <div class="previewGrid-content">
+            <span class="previewGrid-category">New Build</span>
+            <h3 class="previewGrid-title">Brighton East</h3>
+          </div>
+        </a>
+      </div>
+      <div class="previewGrid-item" data-category="new-build">
+        <a href="/projects/blairgowrie.html" class="previewGrid-link">
+          <div class="previewGrid-image">
+            <img src="images/projects/blairgowrie/cover.jpg" alt="Blairgowrie" />
+          </div>
+          <div class="previewGrid-content">
+            <span class="previewGrid-category">New Build</span>
+            <h3 class="previewGrid-title">Blairgowrie</h3>
+          </div>
+        </a>
+      </div>
+      <div class="previewGrid-item" data-category="renovation">
+        <a href="/projects/narre-warren-south.html" class="previewGrid-link">
+          <div class="previewGrid-image">
+            <img src="images/projects/narre_warren_south/cover.jpg" alt="Narre Warren South" />
+          </div>
+          <div class="previewGrid-content">
+            <span class="previewGrid-category">Renovation</span>
+            <h3 class="previewGrid-title">Narre Warren South</h3>
+          </div>
+        </a>
+      </div>
+      <div class="previewGrid-item" data-category="renovation">
+        <a href="/projects/st-kilda.html" class="previewGrid-link">
+          <div class="previewGrid-image">
+            <img src="images/projects/stkilda/cover.jpg" alt="St. Kilda" />
+          </div>
+          <div class="previewGrid-content">
+            <span class="previewGrid-category">Renovation</span>
+            <h3 class="previewGrid-title">St. Kilda</h3>
+          </div>
+        </a>
+      </div>
+      <div class="previewGrid-item" data-category="renovation">
+        <a href="/projects/narre-warren.html" class="previewGrid-link">
+          <div class="previewGrid-image">
+            <img src="images/projects/narre_warren/cover.jpg" alt="Narre Warren" />
+          </div>
+          <div class="previewGrid-content">
+            <span class="previewGrid-category">Renovation</span>
+            <h3 class="previewGrid-title">Narre Warren</h3>
+          </div>
+        </a>
+      </div>
+      <div class="previewGrid-item" data-category="renovation">
+        <a href="/projects/vermont.html" class="previewGrid-link">
+          <div class="previewGrid-image">
+            <img src="images/projects/vermont/cover.jpg" alt="Vermont" />
+          </div>
+          <div class="previewGrid-content">
+            <span class="previewGrid-category">Renovation</span>
+            <h3 class="previewGrid-title">Vermont</h3>
+          </div>
+        </a>
+      </div>
+      <div class="previewGrid-item" data-category="renovation">
+        <a href="/projects/st-kilda-west.html" class="previewGrid-link">
+          <div class="previewGrid-image">
+            <img src="images/projects/stkilda_west/cover.jpg" alt="St. Kilda West" />
+          </div>
+          <div class="previewGrid-content">
+            <span class="previewGrid-category">Renovation</span>
+            <h3 class="previewGrid-title">St. Kilda West</h3>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h5 class="footer-title">Contact Info</h5>
+          <p><a href="mailto:info@dsbuilt.com">info@dsbuilt.com</a></p>
+          <p>45 Vannam Drive<br>Ashwood, VIC, 3147<br><em>By appointment only</em></p>
+        </div>
+        <div class="footer-col">
+          <h5 class="footer-title">Social Media</h5>
+          <ul class="footer-links">
+            <li><a href="https://www.instagram.com/ds.built/" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://www.facebook.com/Dsbuilt-102674981467831/" target="_blank" rel="noopener">Facebook</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5 class="footer-title">Sitemap</h5>
+          <ul class="footer-links">
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/projects.html">Projects</a></li>
+            <li><a href="/feed.html">Feed</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer-logos">
+          <img src="images/VBA-logo.jpg" alt="VBA Logo" />
+          <img src="images/mbav-logo.jpg" alt="Master Builders Logo" />
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

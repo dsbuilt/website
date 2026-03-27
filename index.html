@@ -1,487 +1,257 @@
 <!DOCTYPE html>
-<html lang="en-us"><head>
-  <meta charset="utf-8" />
-  <title>DSBuilt</title>
-
-  <!-- mobile responsive meta -->
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  
-  <meta name="author" content="DSBuilt">
-  
-  <meta name="generator" content="Hugo 0.120.4">
-
-  <!-- Bootstrap -->
-  
-  <link rel="stylesheet" href="https://dsbuilt.com/css/bootstrap.min.css" />
-  <!-- font-awesome -->
-  <link rel="stylesheet" href="https://dsbuilt.com/font-awesome/css/font-awesome.min.css" />
-  <!-- Main Stylesheets -->
-  
-  <link href="https://dsbuilt.com/scss/style.min.css" rel="stylesheet" />
-
-  <script type="text/javascript" src="https://dsbuilt.com/js/carousel.js"></script>
-  <link rel="stylesheet" href="https://dsbuilt.com/css/carousel.css">
-
-  
-  <link rel="shortcut icon" href="https://dsbuilt.com/images/favicon.ico" type="image/x-icon" />
-  <link rel="icon" href="https://dsbuilt.com/images/favicon.ico" type="image/x-icon" />
-  
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DSBuilt | Melbourne Custom Home Builders</title>
+  <meta name="description" content="DSBuilt is a Melbourne-based custom home builder specialising in renovations and new builds. Quality craftsmanship and attention to detail on every project." />
+  <link rel="icon" href="images/favicon.ico" />
+  <link rel="stylesheet" href="css/style.css" />
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q3V9TRTJR5"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-Q3V9TRTJR5');
   </script>
 </head>
-<body><nav class="navbar navbar-expand-lg site-navigation">
-  <div class="container">
-    <a class="navbar-brand" href="https://dsbuilt.com">
-      <img src="https://dsbuilt.com/images/logo.png" alt="logo" />
-    </a>
-    <button
-      class="navbar-toggler collapsed"
-      type="button"
-      data-toggle="collapse"
-      data-target="#sitenavbar"
-    >
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
+<body>
 
-    <div class="collapse navbar-collapse" id="sitenavbar">
-      <ul class="navbar-nav ml-auto main-nav">
-         
-         
-         
-          
-          <li class="nav-item">
-            <a class="nav-link" href="https://dsbuilt.com"
-              >Home</a
-            >
-          </li>
-           
-         
-          
-          <li class="nav-item">
-            <a class="nav-link" href="https://dsbuilt.com/about"
-              >About</a
-            >
-          </li>
-           
-         
-          
-          <li class="nav-item">
-            <a class="nav-link" href="https://dsbuilt.com/portfolio"
-              >Projects</a
-            >
-          </li>
-           
-         
-          
-          <li class="nav-item">
-            <a
-              class="nav-link btn btn-sm btn-primary btn-sm-rounded"
-              href="https://dsbuilt.com/contact"
-            >
-              <span class="btn-area">
-                <span data-text="Get in touch">
-                  Get in touch
-                </span>
-              </span>
-            </a>
-          </li>
-           
-        
-      </ul>
+  <!-- Header -->
+  <header class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <div class="navbar-logo">
+        <a href="/"><img src="images/logo.png" alt="DSBuilt" /></a>
+      </div>
+      <nav class="navbar-menu" id="navbar-menu" aria-hidden="true">
+        <ul class="navbar-nav">
+          <li class="active"><a href="/" aria-current="page">Home</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/projects.html">Projects</a></li>
+          <li><a href="/feed.html">Feed</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="navbar-burger" id="navbar-burger" aria-controls="navbar-menu" aria-expanded="false">
+        <span class="navbar-burger-line"></span>
+        <span class="navbar-burger-line"></span>
+        <span class="navbar-burger-line"></span>
+      </button>
     </div>
-  </div>
-</nav>
-<main>
+  </header>
 
-  <!-- Site Hero Start -->
-<section
-  class="site-hero"
-  style="background-image: url('images/projects/albert_park/Beaconsfield-Parade-Albert-Park-Low-Res-2.jpg');"
->
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-10 mx-auto">
-        <div class="site-hero-content text-center">
-          <h1></h1>
-          <h6></h6>
-          <ul class="site-hero-content-buttons">
-            <li>
-              
-              <a href="#project" class="btn btn-secondary scroll-to">
-                <span class="btn-area">
-                  <span data-text="See Our Work">
-                    See Our Work
-                  </span>
-                </span>
-              </a>
-            </li>
-            
-          </ul>
+  <!-- Hero Slider -->
+  <section class="heroSlider" id="heroSlider">
+    <div class="heroSlider-slide is-active">
+      <a href="/projects/albert-park.html" class="heroSlider-slide-link">
+        <img src="images/projects/albert_park/cover.jpg" class="heroSlider-slide-image" alt="Albert Park" />
+      </a>
+    </div>
+    <div class="heroSlider-slide">
+      <a href="/projects/cheltenham.html" class="heroSlider-slide-link">
+        <img src="images/projects/cheltenham/cover.jpg" class="heroSlider-slide-image" alt="Cheltenham" />
+      </a>
+    </div>
+    <div class="heroSlider-slide">
+      <a href="/projects/brighton-east.html" class="heroSlider-slide-link">
+        <img src="images/projects/brighton_east/cover.jpg" class="heroSlider-slide-image" alt="Brighton East" />
+      </a>
+    </div>
+    <div class="heroSlider-slide">
+      <a href="/projects/narre-warren-south.html" class="heroSlider-slide-link">
+        <img src="images/projects/narre_warren_south/cover.jpg" class="heroSlider-slide-image" alt="Narre Warren South" />
+      </a>
+    </div>
+    <div class="heroSlider-slide">
+      <a href="/projects/vermont.html" class="heroSlider-slide-link">
+        <img src="images/projects/vermont/cover.jpg" class="heroSlider-slide-image" alt="Vermont" />
+      </a>
+    </div>
+    <nav class="slidePager" id="slidePager">
+      <button class="slidePager-item is-selected" data-slide="0">Albert Park</button>
+      <button class="slidePager-item" data-slide="1">Cheltenham</button>
+      <button class="slidePager-item" data-slide="2">Brighton East</button>
+      <button class="slidePager-item" data-slide="3">Narre Warren South</button>
+      <button class="slidePager-item" data-slide="4">Vermont</button>
+    </nav>
+  </section>
+
+  <!-- Projects -->
+  <section class="projects">
+    <div class="container">
+      <h2 class="section-title">OUR PROJECTS</h2>
+      <div class="previewGrid" id="previewGrid">
+        <div class="previewGrid-item previewGrid-item--feature" data-category="renovation">
+          <a href="/projects/albert-park.html" class="previewGrid-link">
+            <div class="previewGrid-image">
+              <img src="images/projects/albert_park/cover.jpg" alt="Albert Park" />
+            </div>
+            <div class="previewGrid-content">
+              <span class="previewGrid-category">Renovation</span>
+              <h3 class="previewGrid-title">Albert Park</h3>
+            </div>
+          </a>
+        </div>
+        <div class="previewGrid-item" data-category="renovation">
+          <a href="/projects/ashburton.html" class="previewGrid-link">
+            <div class="previewGrid-image">
+              <img src="images/projects/ashburton/cover.jpg" alt="Ashburton" />
+            </div>
+            <div class="previewGrid-content">
+              <span class="previewGrid-category">Renovation</span>
+              <h3 class="previewGrid-title">Ashburton</h3>
+            </div>
+          </a>
+        </div>
+        <div class="previewGrid-item" data-category="new-build">
+          <a href="/projects/cheltenham.html" class="previewGrid-link">
+            <div class="previewGrid-image">
+              <img src="images/projects/cheltenham/cover.jpg" alt="Cheltenham" />
+            </div>
+            <div class="previewGrid-content">
+              <span class="previewGrid-category">New Build</span>
+              <h3 class="previewGrid-title">Cheltenham</h3>
+            </div>
+          </a>
+        </div>
+        <div class="previewGrid-item" data-category="new-build">
+          <a href="/projects/brighton-east.html" class="previewGrid-link">
+            <div class="previewGrid-image">
+              <img src="images/projects/brighton_east/cover.jpg" alt="Brighton East" />
+            </div>
+            <div class="previewGrid-content">
+              <span class="previewGrid-category">New Build</span>
+              <h3 class="previewGrid-title">Brighton East</h3>
+            </div>
+          </a>
+        </div>
+        <div class="previewGrid-item" data-category="new-build">
+          <a href="/projects/blairgowrie.html" class="previewGrid-link">
+            <div class="previewGrid-image">
+              <img src="images/projects/blairgowrie/cover.jpg" alt="Blairgowrie" />
+            </div>
+            <div class="previewGrid-content">
+              <span class="previewGrid-category">New Build</span>
+              <h3 class="previewGrid-title">Blairgowrie</h3>
+            </div>
+          </a>
+        </div>
+        <div class="previewGrid-item" data-category="renovation">
+          <a href="/projects/narre-warren-south.html" class="previewGrid-link">
+            <div class="previewGrid-image">
+              <img src="images/projects/narre_warren_south/cover.jpg" alt="Narre Warren South" />
+            </div>
+            <div class="previewGrid-content">
+              <span class="previewGrid-category">Renovation</span>
+              <h3 class="previewGrid-title">Narre Warren South</h3>
+            </div>
+          </a>
+        </div>
+        <div class="previewGrid-item" data-category="renovation">
+          <a href="/projects/st-kilda.html" class="previewGrid-link">
+            <div class="previewGrid-image">
+              <img src="images/projects/stkilda/cover.jpg" alt="St. Kilda" />
+            </div>
+            <div class="previewGrid-content">
+              <span class="previewGrid-category">Renovation</span>
+              <h3 class="previewGrid-title">St. Kilda</h3>
+            </div>
+          </a>
+        </div>
+        <div class="previewGrid-item" data-category="renovation">
+          <a href="/projects/narre-warren.html" class="previewGrid-link">
+            <div class="previewGrid-image">
+              <img src="images/projects/narre_warren/cover.jpg" alt="Narre Warren" />
+            </div>
+            <div class="previewGrid-content">
+              <span class="previewGrid-category">Renovation</span>
+              <h3 class="previewGrid-title">Narre Warren</h3>
+            </div>
+          </a>
         </div>
       </div>
+      <div class="section-cta">
+        <a href="/projects.html" class="btn btn-primary">See more of our work</a>
+      </div>
     </div>
-  </div>
-  
-</section>
-<!-- Site Hero End -->  
+  </section>
 
-
-
-
-
-  
-  <section class="site-project" id="project">
+  <!-- Testimonials -->
+  <section class="testimonials">
     <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="section-title">
-            <h2>OUR PROJECTS</h2>
-            <p></p>
-          </div>
+      <h2 class="section-title">Reviews</h2>
+      <p class="section-subtitle">What clients say about our services.</p>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-quote">"Exceeded my expectations! Doug and his team did amazing quality work transforming my bathroom beyond my imagination."</p>
+          <h5 class="testimonial-name">Rosie</h5>
         </div>
-        
-        <div class="col-lg-6 col-md-10 mx-auto">
-          <div class="site-project-item">
-            <div class="site-project-item-thumb">
-              <img src="https://dsbuilt.com/images/projects/albert_park/Beaconsfield-Parade-Albert-Park-Low-Res-2-16-9.jpg" alt="project-thumb">
-            </div>
-            <a href="https://dsbuilt.com/portfolio/albert_park/">
-              <div class="site-project-item-content">
-                <span>Renovation</span>
-                <h3>Albert Park</h3>
-                
-              </div>
-            </a>
-          </div>
+        <div class="testimonial-card">
+          <p class="testimonial-quote">"DSBuilt and the team were very helpful from start to finish. Easy to work with and everything was done to a high quality standard. Really good communication throughout the project and will engage their services again in the future for my next development and projects."</p>
+          <h5 class="testimonial-name">Emma</h5>
         </div>
-        
-        <div class="col-lg-6 col-md-10 mx-auto">
-          <div class="site-project-item">
-            <div class="site-project-item-thumb">
-              <img src="https://dsbuilt.com/images/projects/ashburton/ashburton_cover_photo.jpg" alt="project-thumb">
-            </div>
-            <a href="https://dsbuilt.com/portfolio/ashburton/">
-              <div class="site-project-item-content">
-                <span>Renovation</span>
-                <h3>Ashburton</h3>
-                
-              </div>
-            </a>
-          </div>
+        <div class="testimonial-card">
+          <p class="testimonial-quote">"The finished product speaks for itself! Doug is an excellent communicator, a repository of practical solutions to any problems that might pop up and a good, trustworthy bloke too. My wife and I have no hesitation in recommending Doug and his team for any building projects."</p>
+          <h5 class="testimonial-name">Tom</h5>
         </div>
-        
-        <div class="col-lg-6 col-md-10 mx-auto">
-          <div class="site-project-item">
-            <div class="site-project-item-thumb">
-              <img src="https://dsbuilt.com/images/projects/cheltenham/Cheltenham-8-16-9.jpg" alt="project-thumb">
-            </div>
-            <a href="https://dsbuilt.com/portfolio/cheltenham/">
-              <div class="site-project-item-content">
-                <span>New Build</span>
-                <h3>Cheltenham</h3>
-                
-              </div>
-            </a>
-          </div>
+        <div class="testimonial-card">
+          <p class="testimonial-quote">"If you're looking for a builder in Melbourne, look no further. Honest, reliable, affordable and attention to detail is second to none. Doug and his team are amazing. Highly recommended A+"</p>
+          <h5 class="testimonial-name">Ricky</h5>
         </div>
-        
-        <div class="col-lg-6 col-md-10 mx-auto">
-          <div class="site-project-item">
-            <div class="site-project-item-thumb">
-              <img src="https://dsbuilt.com/images/projects/brighton_east/Cummins-Rd-Brighton-East-High-Res-1-COVER.jpg" alt="project-thumb">
-            </div>
-            <a href="https://dsbuilt.com/portfolio/brighton/">
-              <div class="site-project-item-content">
-                <span>New Build</span>
-                <h3>Brighton East</h3>
-                
-              </div>
-            </a>
-          </div>
+        <div class="testimonial-card">
+          <p class="testimonial-quote">"Doug and his team did a fantastic job on my property. The house needed a lot of work done to it. Throughout the renovation Doug had great insight and cared a lot about the finer details of the build. Thank you DSBuilt."</p>
+          <h5 class="testimonial-name">Antonio</h5>
         </div>
-        
-        <div class="col-lg-6 col-md-10 mx-auto">
-          <div class="site-project-item">
-            <div class="site-project-item-thumb">
-              <img src="https://dsbuilt.com/images/projects/blairgowrie/blairgowrie-cover.png" alt="project-thumb">
-            </div>
-            <a href="https://dsbuilt.com/portfolio/blairgowrie/">
-              <div class="site-project-item-content">
-                <span>New Build</span>
-                <h3>Blairgowrie</h3>
-                
-              </div>
-            </a>
-          </div>
-        </div>
-        
-        <div class="col-lg-6 col-md-10 mx-auto">
-          <div class="site-project-item">
-            <div class="site-project-item-thumb">
-              <img src="https://dsbuilt.com/images/projects/narre_warren_south/Narre-Warren-South-9-16-9.jpg" alt="project-thumb">
-            </div>
-            <a href="https://dsbuilt.com/portfolio/narre_warren_south/">
-              <div class="site-project-item-content">
-                <span>Renovation</span>
-                <h3>Narre Warren South</h3>
-                
-              </div>
-            </a>
-          </div>
-        </div>
-        
-        <div class="col-lg-6 col-md-10 mx-auto">
-          <div class="site-project-item">
-            <div class="site-project-item-thumb">
-              <img src="https://dsbuilt.com/images/projects/stkilda/stk_crimea_5.jpg" alt="project-thumb">
-            </div>
-            <a href="https://dsbuilt.com/portfolio/st_kilda/">
-              <div class="site-project-item-content">
-                <span>Renovation</span>
-                <h3>St. Kilda</h3>
-                
-              </div>
-            </a>
-          </div>
-        </div>
-        
-        <div class="col-lg-6 col-md-10 mx-auto">
-          <div class="site-project-item">
-            <div class="site-project-item-thumb">
-              <img src="https://dsbuilt.com/images/projects/narre_warren/Francis-Court-Low-Res-2-cover.jpg" alt="project-thumb">
-            </div>
-            <a href="https://dsbuilt.com/portfolio/narre_warren/">
-              <div class="site-project-item-content">
-                <span>Renovation</span>
-                <h3>Narre Warren</h3>
-                
-              </div>
-            </a>
-          </div>
-        </div>
-        
-        <div class="col-12 text-center text-lg-left">
-          <a href="portfolio" class="site-project-cta">See more of our work.</a>
+        <div class="testimonial-card">
+          <p class="testimonial-quote">"Doug and his team did great work on our Melbourne apartment as we prepared it for sale - we could not be happier - well done guys!!"</p>
+          <h5 class="testimonial-name">Glen</h5>
         </div>
       </div>
     </div>
   </section>
-  
 
- 
-  
-  <section class="site-testimonial">
+  <!-- CTA -->
+  <section class="cta">
     <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="section-title">
-            <h2>
-              Reviews
-            </h2>
-            <p>
-              What clients says about our services.
-            </p>
-          </div>
-        </div>
-        
-        <div class="col-lg-4 col-md-6">
-          <div class="site-testimonial-item">
-            <div class="site-testimonial-item-header">
-              
-              <div class="person">
-                <h5>Rosie</h5>
-                <p></p>
-              </div>
-            </div>
-            <p class="site-testimonial-item-body">
-              &#34;Exceeded my expectations! Doug and his team did amazing quality work transforming my bathroom beyond my imagination.&#34;
-
-            </p>
-          </div>
-        </div>
-        
-        <div class="col-lg-4 col-md-6">
-          <div class="site-testimonial-item">
-            <div class="site-testimonial-item-header">
-              
-              <div class="person">
-                <h5>Emma</h5>
-                <p></p>
-              </div>
-            </div>
-            <p class="site-testimonial-item-body">
-              &#34;DSBuilt and the team were very helpful from start to finish. Easy to work with and everything was done to a high quality standard. Really good communication throughout the project and will engage their services again in the future for my next development and projects.&#34;
-
-            </p>
-          </div>
-        </div>
-        
-        <div class="col-lg-4 col-md-6">
-          <div class="site-testimonial-item">
-            <div class="site-testimonial-item-header">
-              
-              <div class="person">
-                <h5>Tom</h5>
-                <p></p>
-              </div>
-            </div>
-            <p class="site-testimonial-item-body">
-              &#34;The finished product speaks for itself! Doug is an excellent communicator, a repository of practical solutions to any problems that might pop up and a good, trustworthy bloke too. My wife and I have no hesitation in recommending Doug and his team for any building projects.&#34;
-
-            </p>
-          </div>
-        </div>
-        
-        <div class="col-lg-4 col-md-6">
-          <div class="site-testimonial-item">
-            <div class="site-testimonial-item-header">
-              
-              <div class="person">
-                <h5>Ricky</h5>
-                <p></p>
-              </div>
-            </div>
-            <p class="site-testimonial-item-body">
-              &#34;If you&#39;re looking for a builder in Melbourne, look  no further. Honest, reliable, affordable and attention to detail is second to none. Doug and his team are amazing. Highly recommended A&#43;&#34;
-
-            </p>
-          </div>
-        </div>
-        
-        <div class="col-lg-4 col-md-6">
-          <div class="site-testimonial-item">
-            <div class="site-testimonial-item-header">
-              
-              <div class="person">
-                <h5>Antonio</h5>
-                <p></p>
-              </div>
-            </div>
-            <p class="site-testimonial-item-body">
-              &#34;Doug and his team did a fantastic job on my property. The house needed a lot of work done to it. Throughout the renovation Doug had great insight and cared a lot about the finer details of the build. Thank you DSBuilt.&#34;
-
-            </p>
-          </div>
-        </div>
-        
-        <div class="col-lg-4 col-md-6">
-          <div class="site-testimonial-item">
-            <div class="site-testimonial-item-header">
-              
-              <div class="person">
-                <h5>Glen</h5>
-                <p></p>
-              </div>
-            </div>
-            <p class="site-testimonial-item-body">
-              &#34;Doug and his team did great work on our Melbourne apartment as we prepared it for sale - we could not be happier - well done guys!!&#34;
-
-            </p>
-          </div>
-        </div>
-        
-      </div>
+      <h2 class="cta-title">LET'S WORK TOGETHER</h2>
+      <a href="/contact.html" class="btn btn-primary">Get in touch</a>
     </div>
   </section>
-  
- 
-  
-  <section class="site-cta" style='background-image: url("https://dsbuilt.com");'>
+
+  <!-- Footer -->
+  <footer class="footer">
     <div class="container">
-      <div class="row">
-        <div class="col-12 text-center">
-          <h1 class="site-cta-title">LET’S WORK TOGETHER</h1>
-          <ul class="site-cta-buttons">
-            <li>
-              <a href="https://dsbuilt.com/contact" class="btn btn-secondary">
-                <span class="btn-area">
-                  <span data-text="Get in touch.">
-                    Get in touch.
-                  </span>
-                </span>
-              </a>
-            </li>
-            
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h5 class="footer-title">Contact Info</h5>
+          <p><a href="mailto:info@dsbuilt.com">info@dsbuilt.com</a></p>
+          <p>45 Vannam Drive<br>Ashwood, VIC, 3147<br><em>By appointment only</em></p>
+        </div>
+        <div class="footer-col">
+          <h5 class="footer-title">Social Media</h5>
+          <ul class="footer-links">
+            <li><a href="https://www.instagram.com/ds.built/" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://www.facebook.com/Dsbuilt-102674981467831/" target="_blank" rel="noopener">Facebook</a></li>
           </ul>
+        </div>
+        <div class="footer-col">
+          <h5 class="footer-title">Sitemap</h5>
+          <ul class="footer-links">
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/projects.html">Projects</a></li>
+            <li><a href="/feed.html">Feed</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer-logos">
+          <img src="images/VBA-logo.jpg" alt="VBA Logo" />
+          <img src="images/mbav-logo.jpg" alt="Master Builders Logo" />
         </div>
       </div>
     </div>
-  </section>
-  
- 
-        </main><footer class="site-footer">
-  <div class="container">
-    <div class="row">
-      
-      
-      <div class="col-lg-3 col-md-6">
-        <div class="site-footer-widget">
-          <h5 class="site-footer-widget-title">Contact Info</h5>
-          <p class="site-footer-widget-description">
-            <a href="mailto:info@dsbuilt.com">info@dsbuilt.com</a>
-            <br /><br />
-            45 Vannam Drive<br>Ashwood, VIC, 3147<br><i>By appointment only</i>
-            
-          </p>
-        </div>
-      </div>
-       
-      <div class="col-lg-3 col-md-6">
-        <div class="site-footer-widget">
-          <h5 class="site-footer-widget-title">Social Media</h5>
-          <ul class="site-footer-widget-links">
-            
-            <li><a href="https://www.instagram.com/ds.built/">Instagram</a></li>
-            
-            <li><a href="https://www.facebook.com/Dsbuilt-102674981467831/">Facebook</a></li>
-            
-          </ul>
-        </div>
-      </div>
-       
-      <div class="col-lg-3 col-md-6">
-        <div class="site-footer-widget">
-          <h5 class="site-footer-widget-title">Sitemap</h5>
-          <ul class="site-footer-widget-links">
-            
-            <li><a href="https://dsbuilt.com/about">About</a></li>
-            
-            <li><a href="https://dsbuilt.com/portfolio">Projects</a></li>
-            
-            <li><a href="https://dsbuilt.com/contact">Contact</a></li>
-            
-          </ul>
-        </div>
-      </div>
-      
-      
-      <div class="col-lg-3 col-12">
-        
-        <img src="https://dsbuilt.com/images/VBA-logo.jpg" width="100%" alt="VBA
-        Logo"> <img src="https://dsbuilt.com/images/mbav-logo.jpg" width="100%"
-        alt="Master Builders Logo">
-        
-        
-      </div>
-    </div>
-  </div>
-</footer>
+  </footer>
 
-
-<script src="https://dsbuilt.com/js/formhandler.min.js"></script>
-
-<script src="https://dsbuilt.com/js/vendor.min.js"></script>
-
-<script src="https://dsbuilt.com/js/script.min.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
