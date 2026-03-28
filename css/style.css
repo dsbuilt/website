@@ -1036,64 +1036,6 @@ button {
 }
 
 /* ============================================================
-   TESTIMONIALS
-   ============================================================ */
-.testimonials {
-  padding: 80px 0;
-}
-
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
-}
-
-@media (min-width: 768px) {
-  .testimonials-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .testimonials-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.testimonial-card {
-  background-color: var(--color-grey-900);
-  padding: 40px 32px;
-  border-left: 3px solid var(--color-teal);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.testimonial-quote {
-  font-size: 1rem;
-  line-height: 1.8;
-  color: var(--color-grey-300);
-  font-style: italic;
-}
-
-.testimonial-quote::before {
-  content: "\201C";
-  font-size: 2rem;
-  line-height: 1;
-  color: var(--color-teal);
-  display: block;
-  margin-bottom: 8px;
-}
-
-.testimonial-name {
-  margin-top: 24px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-/* ============================================================
    CTA SECTION
    ============================================================ */
 .cta {
@@ -1258,9 +1200,5 @@ button {
 
   .cta {
     padding: 64px var(--gutter);
-  }
-
-  .testimonial-card {
-    padding: 28px 20px;
   }
 }
