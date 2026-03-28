@@ -501,10 +501,23 @@ button {
   justify-content: flex-end;
   padding: 24px;
   z-index: 1;
-  opacity: 0;
-  transform: translateY(8px);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 50%);
+  opacity: 1;
+  transform: translateY(0);
   transition: opacity var(--transition-speed) var(--transition-fn),
     transform var(--transition-speed) var(--transition-fn);
+}
+
+@media (min-width: 768px) {
+  .previewGrid-content {
+    background: none;
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  .previewGrid-item:hover .previewGrid-content {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 50%);
+  }
 }
 
 .previewGrid-item:hover .previewGrid-content {
