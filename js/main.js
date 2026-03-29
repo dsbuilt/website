@@ -211,4 +211,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
   }
+
+  /* ------------------------------------------------
+     7. Back to Top Button
+  ------------------------------------------------ */
+  const backToTop = document.createElement('button');
+  backToTop.className = 'backToTop';
+  backToTop.setAttribute('aria-label', 'Back to top');
+  backToTop.innerHTML = '&#8593;';
+  document.body.appendChild(backToTop);
+
+  const toggleBackToTop = () => {
+    if (window.scrollY > 300) {
+      backToTop.classList.add('is-visible');
+    } else {
+      backToTop.classList.remove('is-visible');
+    }
+  };
+
+  window.addEventListener('scroll', toggleBackToTop, { passive: true });
+
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 });
