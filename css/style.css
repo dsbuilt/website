@@ -1169,7 +1169,7 @@ button {
 }
 
 .footer-logos img {
-  max-height: 28px;
+  max-height: 48px;
   opacity: 0.5;
   transition: opacity var(--transition-speed) var(--transition-fn);
 }
