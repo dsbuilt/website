@@ -1045,43 +1045,30 @@ button {
   }
 
   .projectSingle-gallery {
-    display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-    grid-auto-flow: dense;
-    grid-auto-rows: 110px;
-    gap: 14px;
+    display: block;
+    column-count: 2;
+    column-gap: 14px;
   }
 
   .projectSingle-gallery img {
+    display: block;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    grid-column: span 3;
-    grid-row: span 2;
+    height: auto;
+    margin: 0 0 14px;
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+
+@media (min-width: 1200px) {
+  .projectSingle-gallery {
+    column-count: 3;
+    column-gap: 16px;
   }
 
-  .projectSingle-gallery img.is-landscape {
-    grid-column: span 3;
-    grid-row: span 2;
-  }
-
-  .projectSingle-gallery img.is-landscape.is-featured {
-    grid-column: span 4;
-    grid-row: span 3;
-  }
-
-  .projectSingle-gallery img.is-portrait {
-    grid-column: span 2;
-    grid-row: span 3;
-  }
-
-  .projectSingle-gallery img.is-portrait.is-featured {
-    grid-row: span 4;
-  }
-
-  .projectSingle-gallery img.is-square {
-    grid-column: span 3;
-    grid-row: span 3;
+  .projectSingle-gallery img {
+    margin-bottom: 16px;
   }
 }
 

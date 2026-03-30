@@ -213,48 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ------------------------------------------------
-     7. Project Gallery Layout
-  ------------------------------------------------ */
-  const projectGallery = document.querySelector('.projectSingle-gallery');
-
-  if (projectGallery) {
-    const galleryImages = projectGallery.querySelectorAll('img');
-
-    const applyGalleryShape = (image, index) => {
-      image.classList.remove('is-landscape', 'is-portrait', 'is-square', 'is-featured');
-
-      const { naturalWidth, naturalHeight } = image;
-      if (!naturalWidth || !naturalHeight) return;
-
-      const ratio = naturalWidth / naturalHeight;
-
-      if (ratio >= 1.2) {
-        image.classList.add('is-landscape');
-      } else if (ratio <= 0.85) {
-        image.classList.add('is-portrait');
-      } else {
-        image.classList.add('is-square');
-      }
-
-      if (index % 5 === 0) {
-        image.classList.add('is-featured');
-      }
-    };
-
-    galleryImages.forEach((image, index) => {
-      if (image.complete) {
-        applyGalleryShape(image, index);
-        return;
-      }
-
-      image.addEventListener('load', () => applyGalleryShape(image, index), {
-        once: true,
-      });
-    });
-  }
-
-  /* ------------------------------------------------
-     8. Back to Top Button
+     7. Back to Top Button
   ------------------------------------------------ */
   const backToTop = document.createElement('button');
   backToTop.className = 'backToTop';
