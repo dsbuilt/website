@@ -1059,6 +1059,10 @@ button {
     -webkit-column-break-inside: avoid;
     page-break-inside: avoid;
   }
+
+  .video-embed {
+    margin-bottom: 14px;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -1070,11 +1074,19 @@ button {
   .projectSingle-gallery img {
     margin-bottom: 16px;
   }
+
+  .video-embed {
+    margin-bottom: 16px;
+  }
 }
 
 @media (max-width: 899px) {
   .projectSingle-gallery {
     gap: 20px;
+  }
+
+  .video-embed {
+    margin-bottom: 20px;
   }
 }
 
