@@ -1224,11 +1224,6 @@ button {
 
 .footer-logos img {
   max-height: 48px;
-  opacity: 0.5;
-  transition: opacity var(--transition-speed) var(--transition-fn);
-}
-
-.footer-logos img:hover {
   opacity: 1;
 }
 
