@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
               status.textContent = errors;
             });
           }
-        })
+      })
         .catch(() => {
           status.textContent = 'Unable to send — please try again later.';
         });
@@ -213,7 +213,78 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ------------------------------------------------
-     7. Back to Top Button
+     7. Project Gallery Rows
+  ------------------------------------------------ */
+  const projectGalleries = document.querySelectorAll('.projectSingle-gallery');
+
+  const getGalleryOrientation = (image) => {
+    if (!image.naturalWidth || !image.naturalHeight) {
+      return 'portrait';
+    }
+
+    return image.naturalWidth > image.naturalHeight ? 'landscape' : 'portrait';
+  };
+
+  const buildGalleryRows = (gallery) => {
+    const images = Array.from(gallery.querySelectorAll('img'));
+    if (!images.length) return;
+
+    gallery.innerHTML = '';
+
+    for (let index = 0; index < images.length; index += 1) {
+      const image = images[index];
+      const orientation = getGalleryOrientation(image);
+      const row = document.createElement('div');
+      row.className = 'projectSingle-gallery-row';
+
+      if (orientation === 'landscape') {
+        row.classList.add('projectSingle-gallery-row--full');
+        row.appendChild(image);
+        gallery.appendChild(row);
+        continue;
+      }
+
+      row.classList.add('projectSingle-gallery-row--pair');
+      row.appendChild(image);
+
+      const nextImage = images[index + 1];
+      if (nextImage && getGalleryOrientation(nextImage) === 'portrait') {
+        row.appendChild(nextImage);
+        index += 1;
+      } else {
+        row.classList.add('projectSingle-gallery-row--single');
+      }
+
+      gallery.appendChild(row);
+    }
+  };
+
+  projectGalleries.forEach((gallery) => {
+    const images = Array.from(gallery.querySelectorAll('img'));
+    if (!images.length) return;
+
+    let pending = images.length;
+
+    const onReady = () => {
+      pending -= 1;
+      if (pending === 0) {
+        buildGalleryRows(gallery);
+      }
+    };
+
+    images.forEach((image) => {
+      if (image.complete) {
+        onReady();
+        return;
+      }
+
+      image.addEventListener('load', onReady, { once: true });
+      image.addEventListener('error', onReady, { once: true });
+    });
+  });
+
+  /* ------------------------------------------------
+     8. Back to Top Button
   ------------------------------------------------ */
   const backToTop = document.createElement('button');
   backToTop.className = 'backToTop';
