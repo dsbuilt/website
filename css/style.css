@@ -453,7 +453,7 @@ button {
 .previewGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 4px;
+  gap: 20px;
 }
 
 @media (min-width: 768px) {
@@ -470,6 +470,18 @@ button {
   .previewGrid-item--feature {
     grid-column: span 2;
     grid-row: span 2;
+  }
+}
+
+@media (min-width: 900px) {
+  .previewGrid {
+    gap: 14px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .previewGrid {
+    gap: 16px;
   }
 }
 
