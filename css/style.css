@@ -1309,6 +1309,20 @@ button {
     --nav-height: 60px;
   }
 
+  .previewFilter {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    max-width: 320px;
+    margin-inline: auto;
+  }
+
+  .previewFilter-item {
+    width: 100%;
+    justify-self: center;
+    text-align: center;
+  }
+
   .postHeader {
     padding: 100px 0 32px;
   }
