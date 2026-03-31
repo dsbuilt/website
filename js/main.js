@@ -215,6 +215,49 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ------------------------------------------------
      7. Project Gallery Rows
   ------------------------------------------------ */
+  const projectMediaContainers = document.querySelectorAll('.projectSingle-media[data-project-folder]');
+
+  projectMediaContainers.forEach((container) => {
+    const folder = container.dataset.projectFolder;
+    const title = container.dataset.projectTitle || 'Project';
+    const galleryCount = Number(container.dataset.galleryCount || '0');
+    const videoCount = Number(container.dataset.videoCount || '0');
+    const poster = `../images/projects/${folder}/cover.jpg`;
+
+    for (let index = 1; index <= videoCount; index += 1) {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'video-embed';
+
+      const video = document.createElement('video');
+      video.controls = true;
+      video.preload = 'metadata';
+      video.playsInline = true;
+      video.poster = poster;
+
+      const source = document.createElement('source');
+      source.src = `../images/projects/${folder}/video-${index}.mp4`;
+      source.type = 'video/mp4';
+
+      video.appendChild(source);
+      wrapper.appendChild(video);
+      container.appendChild(wrapper);
+    }
+
+    if (galleryCount > 0) {
+      const gallery = document.createElement('div');
+      gallery.className = 'projectSingle-gallery';
+
+      for (let index = 1; index <= galleryCount; index += 1) {
+        const image = document.createElement('img');
+        image.src = `../images/projects/${folder}/gallery-${index}.jpg`;
+        image.alt = `${title} - Image ${index}`;
+        gallery.appendChild(image);
+      }
+
+      container.appendChild(gallery);
+    }
+  });
+
   const projectGalleries = document.querySelectorAll('.projectSingle-gallery');
 
   const getGalleryOrientation = (image) => {

@@ -1109,6 +1109,16 @@ button {
   border: none;
 }
 
+.video-embed video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  object-fit: cover;
+  background: var(--color-grey-900);
+}
+
 /* ============================================================
    CTA SECTION
    ============================================================ */
