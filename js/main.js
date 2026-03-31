@@ -68,6 +68,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentIndex = 0;
     let autoplayTimer = null;
     const SLIDE_DURATION = 5000; // matches CSS transition: transform 5s linear
+    const SWIPE_THRESHOLD = 50;
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchInProgress = false;
+    let suppressClickUntil = 0;
 
     const goToSlide = (index) => {
       // Remove active from current
@@ -88,6 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const nextSlide = () => goToSlide(currentIndex + 1);
+    const previousSlide = () => goToSlide((currentIndex - 1 + slides.length) % slides.length);
 
     const startAutoPlay = () => {
       stopAutoPlay();
@@ -113,6 +119,63 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     });
+
+    heroSlider.addEventListener(
+      'touchstart',
+      (event) => {
+        if (event.touches.length !== 1) {
+          touchInProgress = false;
+          return;
+        }
+
+        touchInProgress = true;
+        touchStartX = event.touches[0].clientX;
+        touchStartY = event.touches[0].clientY;
+      },
+      { passive: true }
+    );
+
+    heroSlider.addEventListener(
+      'touchend',
+      (event) => {
+        if (!touchInProgress || event.changedTouches.length !== 1) {
+          touchInProgress = false;
+          return;
+        }
+
+        touchInProgress = false;
+
+        const deltaX = event.changedTouches[0].clientX - touchStartX;
+        const deltaY = event.changedTouches[0].clientY - touchStartY;
+        const isHorizontalSwipe =
+          Math.abs(deltaX) > SWIPE_THRESHOLD && Math.abs(deltaX) > Math.abs(deltaY);
+
+        if (!isHorizontalSwipe) {
+          return;
+        }
+
+        if (deltaX < 0) {
+          nextSlide();
+        } else {
+          previousSlide();
+        }
+
+        suppressClickUntil = Date.now() + 350;
+        startAutoPlay();
+      },
+      { passive: true }
+    );
+
+    heroSlider.addEventListener(
+      'click',
+      (event) => {
+        if (Date.now() < suppressClickUntil) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+      },
+      true
+    );
 
     // Kick-start the first pager item's progress bar animation
     if (pagerItems[0]) {
