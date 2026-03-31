@@ -251,6 +251,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const image = document.createElement('img');
         image.src = `../images/projects/${folder}/gallery-${index}.jpg`;
         image.alt = `${title} - Image ${index}`;
+        image.loading = 'lazy';
+        image.decoding = 'async';
         gallery.appendChild(image);
       }
 
