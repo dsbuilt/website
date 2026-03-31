@@ -222,6 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const title = container.dataset.projectTitle || 'Project';
     const galleryCount = Number(container.dataset.galleryCount || '0');
     const videoCount = Number(container.dataset.videoCount || '0');
+    const galleryOrder = container.dataset.galleryOrder === 'desc' ? 'desc' : 'asc';
     const poster = `../images/projects/${folder}/cover.jpg`;
 
     for (let index = 1; index <= videoCount; index += 1) {
@@ -247,7 +248,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const gallery = document.createElement('div');
       gallery.className = 'projectSingle-gallery';
 
-      for (let index = 1; index <= galleryCount; index += 1) {
+      const startIndex = galleryOrder === 'desc' ? galleryCount : 1;
+      const endIndex = galleryOrder === 'desc' ? 1 : galleryCount;
+      const step = galleryOrder === 'desc' ? -1 : 1;
+
+      for (let index = startIndex; galleryOrder === 'desc' ? index >= endIndex : index <= endIndex; index += step) {
         const image = document.createElement('img');
         image.src = `../images/projects/${folder}/gallery-${index}.jpg`;
         image.alt = `${title} - Image ${index}`;
