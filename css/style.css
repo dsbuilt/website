@@ -664,6 +664,20 @@ button {
   color: var(--color-white);
 }
 
+.about-bottom-photo {
+  padding: 0 0 80px;
+}
+
+.about-bottom-photo .container {
+  max-width: 560px;
+}
+
+.about-bottom-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 /* ============================================================
    FEED PAGE
    ============================================================ */
