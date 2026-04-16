@@ -707,13 +707,14 @@ button {
 @media (max-width: 767px) {
   .feed-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
 }
 
 @media (max-width: 479px) {
   .feed-grid {
     grid-template-columns: 1fr;
-    gap: 2px;
+    gap: 10px;
   }
 }
 
