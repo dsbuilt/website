@@ -281,6 +281,40 @@ document.addEventListener('DOMContentLoaded', () => {
   ------------------------------------------------ */
   const projectMediaContainers = document.querySelectorAll('.projectSingle-media[data-project-folder]');
 
+  const ZOOMABLE_IMAGE_EXCLUSIONS = [
+    '.navbar-logo',
+    '.footer-logos',
+    '.heroSlider',
+    '.previewGrid-link',
+    '.feed-item',
+    '.imageModal',
+    'a',
+  ];
+
+  const isZoomableImage = (image) => {
+    if (!(image instanceof HTMLImageElement)) return false;
+
+    return (
+      Boolean(image.getAttribute('src')) &&
+      !ZOOMABLE_IMAGE_EXCLUSIONS.some((selector) => image.closest(selector))
+    );
+  };
+
+  const markZoomableImages = (root = document) => {
+    root.querySelectorAll('img').forEach((image) => {
+      if (!isZoomableImage(image)) return;
+
+      image.classList.add('imageModal-trigger');
+      image.setAttribute('tabindex', '0');
+      image.setAttribute('role', 'button');
+      image.setAttribute('aria-haspopup', 'dialog');
+      image.setAttribute(
+        'aria-label',
+        image.alt ? `Open larger view: ${image.alt}` : 'Open larger image view'
+      );
+    });
+  };
+
   projectMediaContainers.forEach((container) => {
     const folder = container.dataset.projectFolder;
     const title = container.dataset.projectTitle || 'Project';
@@ -328,6 +362,8 @@ document.addEventListener('DOMContentLoaded', () => {
       container.appendChild(gallery);
     }
   });
+
+  markZoomableImages();
 
   const projectGalleries = document.querySelectorAll('.projectSingle-gallery');
 
@@ -398,7 +434,122 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ------------------------------------------------
-     8. Back to Top Button
+     8. Image Modal
+  ------------------------------------------------ */
+  const imageModal = document.createElement('div');
+  imageModal.className = 'imageModal';
+  imageModal.setAttribute('aria-hidden', 'true');
+  imageModal.setAttribute('role', 'dialog');
+  imageModal.setAttribute('aria-modal', 'true');
+  imageModal.setAttribute('aria-label', 'Expanded image view');
+
+  const imageModalContent = document.createElement('div');
+  imageModalContent.className = 'imageModal-content';
+
+  const imageModalClose = document.createElement('button');
+  imageModalClose.className = 'imageModal-close';
+  imageModalClose.type = 'button';
+  imageModalClose.setAttribute('aria-label', 'Close expanded image');
+  imageModalClose.textContent = 'Close';
+
+  const imageModalImage = document.createElement('img');
+  imageModalImage.className = 'imageModal-image';
+  imageModalImage.alt = '';
+
+  const imageModalCaption = document.createElement('p');
+  imageModalCaption.className = 'imageModal-caption';
+  imageModalCaption.hidden = true;
+
+  imageModalContent.appendChild(imageModalClose);
+  imageModalContent.appendChild(imageModalImage);
+  imageModalContent.appendChild(imageModalCaption);
+  imageModal.appendChild(imageModalContent);
+  document.body.appendChild(imageModal);
+
+  let activeZoomImage = null;
+  let bodyOverflowBeforeModal = '';
+
+  const openImageModal = (image) => {
+    const source = image.currentSrc || image.src;
+    if (!source) return;
+
+    activeZoomImage = image;
+    bodyOverflowBeforeModal = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    imageModalImage.src = source;
+    imageModalImage.alt = image.alt || '';
+
+    if (image.alt) {
+      imageModalCaption.textContent = image.alt;
+      imageModalCaption.hidden = false;
+    } else {
+      imageModalCaption.textContent = '';
+      imageModalCaption.hidden = true;
+    }
+
+    imageModal.classList.add('is-open');
+    imageModal.setAttribute('aria-hidden', 'false');
+    imageModalClose.focus();
+  };
+
+  const closeImageModal = () => {
+    if (!imageModal.classList.contains('is-open')) return;
+
+    imageModal.classList.remove('is-open');
+    imageModal.setAttribute('aria-hidden', 'true');
+    imageModalImage.removeAttribute('src');
+    imageModalImage.alt = '';
+    imageModalCaption.textContent = '';
+    imageModalCaption.hidden = true;
+    document.body.style.overflow = bodyOverflowBeforeModal;
+
+    if (activeZoomImage) {
+      activeZoomImage.focus();
+    }
+
+    activeZoomImage = null;
+  };
+
+  document.addEventListener('click', (event) => {
+    if (!(event.target instanceof Element)) return;
+
+    const image = event.target.closest('img');
+    if (!(image instanceof HTMLImageElement) || !image.classList.contains('imageModal-trigger')) {
+      return;
+    }
+
+    event.preventDefault();
+    openImageModal(image);
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && imageModal.classList.contains('is-open')) {
+      closeImageModal();
+      return;
+    }
+
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+
+    const image = document.activeElement;
+    if (!(image instanceof HTMLImageElement) || !image.classList.contains('imageModal-trigger')) {
+      return;
+    }
+
+    event.preventDefault();
+    openImageModal(image);
+  });
+
+  imageModalClose.addEventListener('click', closeImageModal);
+
+  imageModal.addEventListener('click', (event) => {
+    if (event.target === imageModal) {
+      closeImageModal();
+    }
+  });
+
+  /* ------------------------------------------------
+     9. Back to Top Button
   ------------------------------------------------ */
   const backToTop = document.createElement('button');
   backToTop.className = 'backToTop';
