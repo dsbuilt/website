@@ -457,9 +457,17 @@ button {
   gap: 20px;
 }
 
+.projectsGridSection {
+  padding-bottom: 88px;
+}
+
 @media (min-width: 768px) {
   .previewGrid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .projectsGridSection {
+    padding-bottom: 120px;
   }
 }
 
