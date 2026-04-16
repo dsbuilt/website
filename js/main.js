@@ -210,7 +210,8 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.setAttribute('aria-checked', 'true');
 
         items.forEach((item) => {
-          const matches = filter === 'all' || item.dataset.category === filter;
+          const categories = (item.dataset.category || '').split(/\s+/).filter(Boolean);
+          const matches = filter === 'all' || categories.includes(filter);
           if (matches) {
             item.classList.remove('is-hidden');
           } else {
