@@ -1198,12 +1198,66 @@ button {
   max-width: min(1600px, 100%);
 }
 
+.imageModal-stage {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .imageModal-image {
   width: auto;
   max-width: 100%;
   max-height: calc(100vh - 96px);
   object-fit: contain;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+  cursor: zoom-out;
+}
+
+.imageModal-nav {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(44px, 4.5vw, 60px);
+  height: clamp(44px, 4.5vw, 60px);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 999px;
+  background: rgba(17, 17, 17, 0.82);
+  color: var(--color-white);
+  transform: translateY(-50%);
+  touch-action: manipulation;
+}
+
+.imageModal-nav:hover,
+.imageModal-nav:focus-visible {
+  border-color: rgba(255, 255, 255, 0.55);
+  background: rgba(34, 34, 34, 0.92);
+}
+
+.imageModal-nav[hidden] {
+  display: none;
+}
+
+.imageModal-nav:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.imageModal-nav--previous {
+  left: clamp(8px, 2vw, 20px);
+}
+
+.imageModal-nav--next {
+  right: clamp(8px, 2vw, 20px);
+}
+
+.imageModal-nav span {
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  line-height: 1;
 }
 
 .imageModal-close {
@@ -1244,6 +1298,19 @@ button {
 
   .imageModal-image {
     max-height: calc(100vh - 88px);
+  }
+
+  .imageModal-nav {
+    width: 44px;
+    height: 44px;
+  }
+
+  .imageModal-nav--previous {
+    left: 6px;
+  }
+
+  .imageModal-nav--next {
+    right: 6px;
   }
 
   .imageModal-close {

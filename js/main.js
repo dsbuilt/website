@@ -452,31 +452,66 @@ document.addEventListener('DOMContentLoaded', () => {
   imageModalClose.setAttribute('aria-label', 'Close expanded image');
   imageModalClose.textContent = 'Close';
 
+  const imageModalStage = document.createElement('div');
+  imageModalStage.className = 'imageModal-stage';
+
+  const imageModalPrevious = document.createElement('button');
+  imageModalPrevious.className = 'imageModal-nav imageModal-nav--previous';
+  imageModalPrevious.type = 'button';
+  imageModalPrevious.setAttribute('aria-label', 'Show previous image');
+  imageModalPrevious.innerHTML = '<span aria-hidden="true">&#8592;</span>';
+
   const imageModalImage = document.createElement('img');
   imageModalImage.className = 'imageModal-image';
   imageModalImage.alt = '';
+
+  const imageModalNext = document.createElement('button');
+  imageModalNext.className = 'imageModal-nav imageModal-nav--next';
+  imageModalNext.type = 'button';
+  imageModalNext.setAttribute('aria-label', 'Show next image');
+  imageModalNext.innerHTML = '<span aria-hidden="true">&#8594;</span>';
 
   const imageModalCaption = document.createElement('p');
   imageModalCaption.className = 'imageModal-caption';
   imageModalCaption.hidden = true;
 
   imageModalContent.appendChild(imageModalClose);
-  imageModalContent.appendChild(imageModalImage);
+  imageModalStage.appendChild(imageModalPrevious);
+  imageModalStage.appendChild(imageModalImage);
+  imageModalStage.appendChild(imageModalNext);
+  imageModalContent.appendChild(imageModalStage);
   imageModalContent.appendChild(imageModalCaption);
   imageModal.appendChild(imageModalContent);
   document.body.appendChild(imageModal);
 
   let activeZoomImage = null;
   let bodyOverflowBeforeModal = '';
+  let activeZoomImageIndex = -1;
 
-  const openImageModal = (image) => {
+  const getZoomableImages = () =>
+    Array.from(document.querySelectorAll('img.imageModal-trigger')).filter((image) => isZoomableImage(image));
+
+  const updateImageModalNavState = () => {
+    const zoomableImages = getZoomableImages();
+    const hasPrevious = activeZoomImageIndex > 0;
+    const hasNext = activeZoomImageIndex > -1 && activeZoomImageIndex < zoomableImages.length - 1;
+
+    imageModalPrevious.disabled = !hasPrevious;
+    imageModalPrevious.hidden = !hasPrevious;
+    imageModalNext.disabled = !hasNext;
+    imageModalNext.hidden = !hasNext;
+  };
+
+  const setActiveZoomImage = (image) => {
+    const zoomableImages = getZoomableImages();
+    const nextIndex = zoomableImages.indexOf(image);
+    if (nextIndex === -1) return false;
+
     const source = image.currentSrc || image.src;
-    if (!source) return;
+    if (!source) return false;
 
     activeZoomImage = image;
-    bodyOverflowBeforeModal = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-
+    activeZoomImageIndex = nextIndex;
     imageModalImage.src = source;
     imageModalImage.alt = image.alt || '';
 
@@ -487,6 +522,16 @@ document.addEventListener('DOMContentLoaded', () => {
       imageModalCaption.textContent = '';
       imageModalCaption.hidden = true;
     }
+
+    updateImageModalNavState();
+    return true;
+  };
+
+  const openImageModal = (image) => {
+    if (!setActiveZoomImage(image)) return;
+
+    bodyOverflowBeforeModal = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
 
     imageModal.classList.add('is-open');
     imageModal.setAttribute('aria-hidden', 'false');
@@ -503,12 +548,25 @@ document.addEventListener('DOMContentLoaded', () => {
     imageModalCaption.textContent = '';
     imageModalCaption.hidden = true;
     document.body.style.overflow = bodyOverflowBeforeModal;
+    imageModalPrevious.disabled = true;
+    imageModalPrevious.hidden = true;
+    imageModalNext.disabled = true;
+    imageModalNext.hidden = true;
 
     if (activeZoomImage) {
       activeZoomImage.focus();
     }
 
     activeZoomImage = null;
+    activeZoomImageIndex = -1;
+  };
+
+  const stepImageModal = (direction) => {
+    const zoomableImages = getZoomableImages();
+    const nextImage = zoomableImages[activeZoomImageIndex + direction];
+    if (!nextImage) return;
+
+    setActiveZoomImage(nextImage);
   };
 
   document.addEventListener('click', (event) => {
@@ -524,9 +582,23 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && imageModal.classList.contains('is-open')) {
-      closeImageModal();
-      return;
+    if (imageModal.classList.contains('is-open')) {
+      if (event.key === 'Escape') {
+        closeImageModal();
+        return;
+      }
+
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        stepImageModal(-1);
+        return;
+      }
+
+      if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        stepImageModal(1);
+        return;
+      }
     }
 
     if (event.key !== 'Enter' && event.key !== ' ') return;
@@ -541,6 +613,13 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   imageModalClose.addEventListener('click', closeImageModal);
+  imageModalPrevious.addEventListener('click', () => {
+    stepImageModal(-1);
+  });
+  imageModalNext.addEventListener('click', () => {
+    stepImageModal(1);
+  });
+  imageModalImage.addEventListener('click', closeImageModal);
 
   imageModal.addEventListener('click', (event) => {
     if (event.target === imageModal) {
