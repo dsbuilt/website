@@ -243,12 +243,10 @@ def replace_generated_block(document: str, replacement: str) -> str:
     return f"{document[:match.start()]}{match.group('start')}{replacement}\n{match.group('end')}{document[match.end():]}"
 
 
-def build_feed_posts(raw_posts: list[dict[str, Any]], limit: int) -> list[dict[str, str]]:
-    rendered_posts: list[dict[str, str]] = []
-    used_slots: set[int] = set()
-
+def select_feed_posts(raw_posts: list[dict[str, Any]], limit: int) -> list[dict[str, str]]:
+    selected_posts: list[dict[str, str]] = []
     for raw_post in raw_posts:
-        if len(rendered_posts) >= limit:
+        if len(selected_posts) >= limit:
             break
 
         permalink = raw_post.get("permalink")
@@ -256,21 +254,36 @@ def build_feed_posts(raw_posts: list[dict[str, Any]], limit: int) -> list[dict[s
         if not permalink or not image_url:
             continue
 
-        slot = len(rendered_posts) + 1
-        image_path = download_image(image_url, slot)
-        used_slots.add(slot)
-        rendered_posts.append(
+        selected_posts.append(
             {
                 "alt": normalise_caption(raw_post.get("caption")),
-                "image_path": image_path,
+                "image_url": image_url,
                 "permalink": permalink,
             }
         )
 
-    cleanup_unused_slots(used_slots)
-
-    if not rendered_posts:
+    if not selected_posts:
         raise RuntimeError("No Instagram posts with usable media were returned.")
+
+    return selected_posts
+
+
+def build_feed_posts(raw_posts: list[dict[str, Any]], limit: int) -> list[dict[str, str]]:
+    rendered_posts: list[dict[str, str]] = []
+    used_slots: set[int] = set()
+
+    for slot, selected_post in enumerate(select_feed_posts(raw_posts, limit), start=1):
+        image_path = download_image(selected_post["image_url"], slot)
+        used_slots.add(slot)
+        rendered_posts.append(
+            {
+                "alt": selected_post["alt"],
+                "image_path": image_path,
+                "permalink": selected_post["permalink"],
+            }
+        )
+
+    cleanup_unused_slots(used_slots)
 
     return rendered_posts
 
